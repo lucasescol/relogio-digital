@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        body{
+            background-color: #ececec;
+        }
+
+        main {
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 100px;
+            font-weight: bold;
+            margin: 100px 0px 50px 0px;
+        }
+
+        .clock {
+            background-color: #292929;
+            border: 15px solid #000000;
+            color: red;
+
+            font-size: 100px;
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+    
+            border-radius: 10px;
+            padding: 80px 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="title">Digital Clock</div>
+        <div class="clock">
+            <div class="hours"></div>
+            <div>:</div>
+            <div class="minutes"></div>
+            <div>:</div>
+            <div class="seconds"></div>
+        </div>
+    </main>
+
+    <script>
+        hoursElem = document.querySelector('.hours')
+        minutesElem = document.querySelector('.minutes')
+        secondsElem = document.querySelector('.seconds')
+        setInterval(() => {
+            today = new Date()
+            hours = today.getHours()
+            hoursElem.innerText = hours
+            minutes = today.getMinutes()
+            if (minutes < 10) {
+                minutesElem.innerText = "0" + minutes             
+            } else {
+                minutesElem.innerText = minutes           
+            }
+            seconds = today.getSeconds()
+            if (seconds < 10) {
+                secondsElem.innerText = "0" + seconds              
+            } else {
+                secondsElem.innerText = seconds            
+            }
+        }, 500)
+
+    </script>
+</body>
+
+</html>
